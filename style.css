@@ -313,8 +313,8 @@ body {
   border-radius: 6px;
 }
 #trailer-btn {
-  width: 3rem;
-  height: 3rem;
+  width: 5rem;
+  height: 5rem;
   background-color: white;
   color: black;
   border: none;
@@ -322,11 +322,12 @@ body {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  font-size: 20px;
+  font-size: 30px;
   align-items: center;
   border-radius: 50%;
   cursor: pointer;
 }
+
 #hero-trailer {
   display: flex;
   gap: 1rem;
@@ -454,6 +455,7 @@ a:-webkit-any-link {
   #trailer-btn {
     width: 3rem;
     height: 3rem;
+    font-size: 20px;
   }
   .right-modal {
     display: flex;
@@ -523,7 +525,7 @@ a:-webkit-any-link {
   flex-direction: column;
 }
 .nav-active {
-  min-height: 55vh;
+  min-height: 58vh;
 }
 #glass {
   display: flex;
