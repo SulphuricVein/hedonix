@@ -218,7 +218,7 @@ async function homeMovies() {
 }
 
 function heroes() {
-  fetch(trending, options)
+  fetch(popularMovies, options)
     .then((res) => res.json())
     .then((data) => {
       const swiperWrapper = document.getElementById("mySwiperWrapper");
@@ -227,13 +227,15 @@ function heroes() {
       swiperWrapper.innerHTML = "";
 
       // Loop through the items and create swiper-slide elements
-      const movies = data.results.slice(1, 8);
+      const movies = data.results.slice(3, 8);
 
       movies.forEach((item) => {
         // Create a div for each swiper-slide
-        if (item.title.length > 35) {
+        if (item.title.length > 35 || item.overview.length > 350) {
           return;
         }
+        console.log(item.overview.length);
+
         const value = item.id;
 
         const slide = document.createElement("div");
@@ -608,4 +610,3 @@ async function cast(value) {
 }
 
 home();
-
