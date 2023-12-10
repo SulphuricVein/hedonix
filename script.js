@@ -227,11 +227,11 @@ function heroes() {
       swiperWrapper.innerHTML = "";
 
       // Loop through the items and create swiper-slide elements
-      const movies = data.results.slice(11, 15);
+      const movies = data.results.slice(1, 8);
 
       movies.forEach((item) => {
         // Create a div for each swiper-slide
-        if (item.title.length > 20) {
+        if (item.title.length > 35) {
           return;
         }
         const value = item.id;
