@@ -13,7 +13,7 @@ button {
   cursor: pointer;
 }
 :root {
-  --background: #191e25;
+  --background: hsla(220, 17%, 7%, 1);
   --color: rgb(2, 2, 41);
   --ff-dm-sans: "DM Sans", sans-serif;
   --banner-background: hsla(250, 6%, 20%, 1);
@@ -182,20 +182,20 @@ a:hover {
   gap: 0.5rem;
   background-color: rgba(0, 0, 0, 0.5);
   width: 30%;
-  border-radius: 8px;
+  border-radius: 25px;
   position: absolute;
   /* top: 250px;
   left: 1px; */
   top: 0;
-  right: 0;
+  right: 1%;
   justify-content: center;
 }
 .date {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 1%;
   border-radius: 5px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.326);
   text-align: center;
   justify-content: center;
 }
@@ -424,6 +424,110 @@ a:-webkit-any-link {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-
+  margin-top: 1rem;
   margin: 0 1rem;
+}
+#genres {
+  margin-top: 1rem;
+}
+.menu {
+  display: none;
+}
+@media (max-width: 680px) {
+  .movie-id {
+    width: 140px;
+    justify-content: space-around;
+  }
+  .swiperContainer {
+    width: 50%;
+  }
+  .swiper {
+    height: 30vh;
+  }
+  .hero-title {
+    font-size: 24px;
+  }
+  .hero-overview {
+    font-size: 8px;
+    top: 30%;
+  }
+  #trailer-btn {
+    width: 3rem;
+    height: 3rem;
+  }
+  .right-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .movie-modal {
+    flex-direction: column;
+    height: auto;
+    background-size: cover;
+    font-size: 13px;
+  }
+  .ratings {
+    gap: 0.2rem;
+
+    right: 4%;
+  }
+  .ratings > img {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+  .date {
+    font-size: small;
+    left: 5%;
+  }
+  h5 {
+    font-size: 0.6rem;
+  }
+  #genres {
+    text-align: center;
+  }
+
+  .menu {
+    display: block;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+
+    font-size: 24px;
+  }
+
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .end {
+    display: none;
+    margin-top: 6rem;
+
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    justify-content: flex-start;
+  }
+  .end > a {
+    /* border-bottom: 1px outset rgba(255, 255, 255, 0.399); */
+    padding-bottom: 0.2rem;
+    justify-content: flex-start;
+    text-align: center;
+    margin-left: 1rem;
+  }
+}
+.active {
+  display: block;
+  display: flex;
+  flex-direction: column;
+}
+.nav-active {
+  min-height: 55vh;
+}
+#glass {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
 }
