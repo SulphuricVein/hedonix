@@ -42,10 +42,15 @@
           <a onclick="home()">Home</a>
           <a onclick="categories()">Categories</a>
           <a onclick="people()">People</a>
-          <a onclick="searchBar()"
+          <a onclick="searchBar()" id="glass-btn"
             ><i class="fa-solid fa-magnifying-glass"></i
           ></a>
-          <a href="https://github.com/SulphuricVein">Source</a>
+          <a href="https://github.com/SulphuricVein/hedonix" target="_blank"
+            >Source</a
+          >
+        </div>
+        <div class="menu">
+          <i class="fa-solid fa-bars"></i>
         </div>
       </div>
 
@@ -100,8 +105,8 @@
           prevEl: ".swiper-button-prev",
         },
         autoplay: {
-          delay: 1000, // Delay between transitions in milliseconds
-          disableOnInteraction: true, // Allow interaction (swiping) to stop autoplay
+          delay: 2000, // Delay between transitions in milliseconds
+          disableOnInteraction: false, // Allow interaction (swiping) to stop autoplay
         },
 
         // And if we need scrollbar
