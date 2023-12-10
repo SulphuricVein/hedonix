@@ -231,6 +231,9 @@ function heroes() {
 
       movies.forEach((item) => {
         // Create a div for each swiper-slide
+        if (item.title.length > 20) {
+          return;
+        }
         const value = item.id;
 
         const slide = document.createElement("div");
