@@ -4,6 +4,7 @@ const tvSection = document.querySelector("#tv-section");
 const movieId = document.querySelector(".movie-id");
 const akash = document.querySelector(".akash");
 const peoples = document.querySelector(".peoples");
+const swiperContainer = document.getElementById("swiperContainer");
 const searching = document.querySelector(".search-bar");
 
 const key = "752949372a73562bd9819c92c7949a71";
@@ -36,6 +37,29 @@ const options = {
       "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI3NTI5NDkzNzJhNzM1NjJiZDk4MTljOTJjNzk0OWE3MSIsInN1YiI6IjY1NmJlOGEzZmNhZGI0MDEzYzhmODFiZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.iSEsPGablv91mhE8IQvUItZKfuWFDuTRbEhB0nY5EsA",
   },
 };
+const end = document.querySelector(".end");
+const nav = document.querySelector(".navbar");
+const menu = document.querySelector(".menu");
+
+document.querySelector(".menu").addEventListener("click", () => {
+  end.classList.toggle("active");
+  nav.classList.toggle("nav-active");
+  document.getElementById("glass-btn").innerHTML = `
+  <div id="glass">
+  
+  <p> Search</p>
+  
+  </div>
+  `;
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target)) {
+      // Clicked outside the menu, so remove classes
+      end.classList.remove("active");
+      nav.classList.remove("nav-active");
+    }
+  });
+});
+
 function home() {
   akash.innerHTML = "";
   peoples.innerHTML = "";
@@ -193,9 +217,8 @@ async function homeMovies() {
   }
 }
 
-const swiperContainer = document.getElementById("swiperContainer");
 function heroes() {
-  fetch(topRated, options)
+  fetch(trending, options)
     .then((res) => res.json())
     .then((data) => {
       const swiperWrapper = document.getElementById("mySwiperWrapper");
@@ -204,7 +227,7 @@ function heroes() {
       swiperWrapper.innerHTML = "";
 
       // Loop through the items and create swiper-slide elements
-      const movies = data.results.slice(0, 5);
+      const movies = data.results.slice(11, 15);
 
       movies.forEach((item) => {
         // Create a div for each swiper-slide
@@ -219,7 +242,8 @@ function heroes() {
 
         // Create a p element for the movie title
         const titleText = document.createElement("p");
-        titleText.textContent = item.title; // Assuming "title" is the property containing
+        titleText.textContent =
+          item.title == undefined ? item.name : item.title; // Assuming "title" is the property containing
         titleText.classList.add("hero-title");
 
         const titleOver = document.createElement("p");
@@ -289,7 +313,7 @@ async function searchResults(value) {
   try {
     const response = await fetch(searchUrl + value, options);
     const result = await response.json();
-    console.log(result);
+
     const moviesWithPosters = result.results.filter(
       (movie) => movie.poster_path != null
     );
@@ -308,9 +332,6 @@ async function searchResults(value) {
     </div>
  </div>
 `
-    );
-    const searchResultsContainer = document.getElementById(
-      "search-results-container"
     );
 
     const movieListHTML = movieElements.join("");
@@ -363,7 +384,6 @@ async function catMovies(value, name) {
   try {
     const response = await fetch(discoverUrl + value, options);
     const result = await response.json();
-    console.log(result);
 
     const moviesWithPosters = result.results.filter(
       (movie) => movie.poster_path != null
@@ -585,3 +605,4 @@ async function cast(value) {
 }
 
 home();
+
